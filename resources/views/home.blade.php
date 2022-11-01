@@ -12,7 +12,9 @@
                     <h1 class="text-center display-4">Todo</h1>
                 </div>
                 <div class="col-md-12">
-                    <form method="POST">
+                    {{-- <form method="POST" action="/store"> --}}
+                    <form method="POST" action="{{ route('store') }}">
+                        @csrf
                         <label for="title">Title*</label>
                         <input type="text" name="title" id="title" class="form-control mb-2"/>
                         <input type="submit" class="btn btn-dark btn-block" value="Submit"/>

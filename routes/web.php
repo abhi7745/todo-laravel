@@ -23,10 +23,12 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', "App\Http\Controllers\TodoController@home");
 
 // case 1 - routing format
-Route::get('/', [TodoController::class, 'home']);
+Route::get('/', [TodoController::class, 'home'])->name('home');
 
 
 Route::get('/api', [NewController::class, 'api']);
+
+Route::post('/store', [TodoController::class, 'store'])->name('store');
 
 
 Route::get('/about-us', function(){

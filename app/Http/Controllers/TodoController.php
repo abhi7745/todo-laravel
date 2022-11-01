@@ -13,4 +13,16 @@ class TodoController extends Controller
         // dd($todo);
         return view('home', ['todos'=>$todo]);
     }
+
+    public function store(Request $request)
+    {
+        // dd($request->post('title'));
+
+        $todo = new Todo();
+        $todo->title = $request->post('title');
+        $todo->save();
+        // return redirect('/');
+        return redirect(route('home'));
+        // return back(); //go to previous page
+    }
 }
