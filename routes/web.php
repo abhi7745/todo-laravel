@@ -30,6 +30,10 @@ Route::get('/api', [NewController::class, 'api']);
 
 Route::post('/store', [TodoController::class, 'store'])->name('store');
 
+Route::get('/edit/{id}', [TodoController::class, 'edit'])->name('edit');
+
+Route::post('/update/{id}', [TodoController::class, 'update'])->name('update');
+
 
 Route::get('/about-us', function(){
     return view('about', ['title'=> 'About Title']);
