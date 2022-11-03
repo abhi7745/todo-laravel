@@ -17,6 +17,17 @@
                         @csrf
                         <label for="title">Title*</label>
                         <input type="text" name="title" id="title" class="form-control mb-2"/>
+
+                        {{-- 1. single error case --}}
+                        @error('title')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
+
+                        {{-- 2. multiple error case --}}
+                        {{-- @foreach ($errors->get('title') as $error)
+                            <small class="text-danger">{{ $error }}</small>
+                        @endforeach --}}
+
                         <input type="submit" class="btn btn-dark btn-block" value="Submit"/>
                     </form>
                 </div>

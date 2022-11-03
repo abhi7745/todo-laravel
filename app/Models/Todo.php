@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Todo extends Model
 {
     use HasFactory;
+    // protected $fillable = ['title',];
+    // or
+    protected $guarded = []; //all field to be mass assignmentable
+
 }

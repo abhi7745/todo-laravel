@@ -18,9 +18,27 @@ class TodoController extends Controller
     {
         // dd($request->post('title'));
 
-        $todo = new Todo();
-        $todo->title = $request->post('title');
-        $todo->save();
+        $validateData = $request->validate([
+            // 'title'=>'required|max:100',
+            'title'=> ['required', 'max:100'],
+        ]);
+
+        // dd($validateData);
+
+        // method - 1
+        // $todo = new Todo();
+        // $todo = new Todo;
+        // // $todo->title = $request->post('title');
+        // $todo->title = $request->title;
+        // $todo->save();
+
+        // method - 2
+        // only work when protected $fillable = ['title',]; add in related models file 'saving database'
+        // or
+        // only work when protected $guarded = []; //all field to be mass assignmentable
+        Todo::create($validateData); # mass assignment of data
+
+
         // return redirect('/');
         return redirect(route('home'));
         // return back(); //go to previous page
