@@ -16,7 +16,7 @@
                     <form method="POST" action="{{ route('store') }}">
                         @csrf
                         <label for="title">Title*</label>
-                        <input type="text" name="title" id="title" class="form-control mb-2"/>
+                        <input type="text" name="title" id="title" value="{{ old('title') }}" class="form-control mb-2"/>
 
                         {{-- 1. single error case --}}
                         @error('title')
@@ -41,7 +41,8 @@
                                 </div>
                                 <div>
                                     <a href="{{ route('edit', $todo->id) }}" class="btn btn-warning">Update</a>
-                                    <form action="#" method="POST" class="d-inline-block">
+                                    <form action="{{ route('delete', $todo->id) }}" method="POST" class="d-inline-block">
+                                        @csrf
                                         <input type="submit" class="btn btn-danger" value="Delete"/>
                                     </form>
                                 </div>

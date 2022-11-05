@@ -91,6 +91,12 @@ class TodoController extends Controller
         return redirect(route('home'));
     }
 
+    public function delete(Todo $id)
+    {
+        $id->delete();
+        return back();
+    }
+
 
 
 }

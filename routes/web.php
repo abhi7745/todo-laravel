@@ -34,6 +34,8 @@ Route::get('/edit/{id}', [TodoController::class, 'edit'])->name('edit');
 
 Route::post('/update/{id}', [TodoController::class, 'update'])->name('update');
 
+Route::post('/delete/{id}', [TodoController::class, 'delete'])->name('delete');
+
 
 Route::get('/about-us', function(){
     return view('about', ['title'=> 'About Title']);
